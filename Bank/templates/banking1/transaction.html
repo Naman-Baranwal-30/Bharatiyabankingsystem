@@ -1,0 +1,32 @@
+{% extends "banking1/homepage.html" %}
+{% block content %}
+{% csrf_token %}
+
+<div class="center c2">
+{% for x in objects2 %}
+ Name:{{name}}<br><br>
+Balance: ₹{{x.bal}}<br><br>
+{% endfor %}
+
+
+
+
+    <form action="{{name}}/show.html" method="POST">
+    {% csrf_token %}
+
+        <select name="item_id" class="css-input" >
+    <option disabled="True" selected>Select User</option>
+{% for x in objects3 %}
+
+    <option value="{{ x.name }}">{{ x.name }}</option>
+{% endfor %}</select><br><br><br><br>
+
+          <label for="name" class="c2">Enter Money to Send:₹</label> <input type="number" class="css-input" value="" name="number"><br><br><br>
+{% for x in objects5 %}
+        <input type="hidden" value={{x}} name="n1">
+{% endfor %}
+        <input type="hidden" value={{name}} name="n">
+        <input type="submit" class="myButton2" value="Transact" name="n1">
+</form>
+</div>
+{% endblock %}

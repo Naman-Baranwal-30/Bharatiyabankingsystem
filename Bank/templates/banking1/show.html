@@ -1,0 +1,61 @@
+{% extends "banking1/homepage.html" %}
+{% block content %}
+<style>
+.alert {
+  padding: 30px;
+  background-color: #05BD10;
+  color: white;
+  margin-bottom: 25px;
+   text-align: center;
+}
+
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
+</style>
+<body>
+  {% if messages %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+
+</div>
+{% endif %}
+  <table class="table table-bordered">
+    <thead>
+      <tr class="c2">
+        <th><b>Name</b></th>
+        <th><b>Email</b></th>
+        <th><b>Balance</b></th>
+        <th><b>Select User for Transaction</b></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+{% for x in objects4 %}
+<tr class="c2">
+        <td>{{x.sender}}</td>
+        <td>{{x.receiver}}</td>
+        <td> ₹{{x.amt}}</td>
+         <td>{{x.dt}}</td>
+
+      </tr>
+{% endfor %}
+ </tbody>
+  </table>
+{% endblock %}

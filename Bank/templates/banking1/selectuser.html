@@ -1,0 +1,28 @@
+{% extends "banking1/homepage.html" %}
+{% block content %}
+
+{% csrf_token %}
+<table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr class="c2">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Balance</th>
+        <th>Select User for Transaction</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+{% for x in objects1 %}
+<tr class="c2">
+        <td>{{x.name}}</td>
+        <td>{{x.email}}</td>
+        <td> ₹{{x.bal}}</td>
+<td><a href="selectuser/{{x.name}}" class="btn">SelectUser</a></td>
+
+      </tr>
+{% endfor %}
+ </tbody>
+  </table>
+{% endblock %}
