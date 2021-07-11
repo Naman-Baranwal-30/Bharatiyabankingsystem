@@ -19,8 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.conf.urls import url
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Bank.urls')),
